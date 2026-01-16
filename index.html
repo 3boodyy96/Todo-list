@@ -1,27 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./dist/output.css" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="/Todo list/style.css"> -->
-    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>To-do list</title>
+
 </head>
-<body class="color-slate-800">
-    <div id="container" >
-        <div id="tasks-adder-bar">
-            <input type="text">
-            <button>Add Task</button>
-        </div>
-        <div id="tasks-list">
-            <ul>
-                <li><button>check</button>Task 1 <button>Delete</button></li>
-                <li><button>check</button>Task 2 <button>Delete</button></li>
-                <li><button>check</button>Task 3 <button>Delete</button></li>
-                <li><button>check</button>Task 4 <button>Delete</button></li>
-                <li><button>check</button>Task 5 <button>Delete</button></li>
-            </ul>
+
+<body class="m-0 p-0 text-white">
+    <div id="container">
+        <img src="images/leaf-7215867_1920.jpg" class="fixed top-0 left-0 w-full h-full object-cover z-[-1] blur-sm"
+            alt="Background Image">
+        <div id="Todos-container"
+            class="border-solid border-black rounded-2xl shadow-md hover:shadow-2xl hover:scale-105 transition ease-in-out flex flex-col items-center gap-7 ">
+            <h1 id="title" class="text-4xl">Todo List</h1>
+            <div id="inputs" class="flex gap-3 p-3 rounded-xl">
+                <input type="text" id="todo-input" placeholder="Sleeping" class="border-none focus:outline-none hover:scale-105 transition ease-in-out">
+                <button id="add-todo-btn" class="rounded-md hover:scale-105 transition ease-in-out">Add</button>
+            </div>
+            <div id="todo-list-container">
+                <ul id="todo-list "class="gap-3 flex flex-col ">
+                    <li>test</li>
+                    <li>boom</li>
+                </ul>
+            </div>
         </div>
     </div>
 </body>
+
 </html>
