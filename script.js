@@ -17,3 +17,12 @@ addTodoBtn.addEventListener('click', () => {
         todoInput.value = "";
     }
 });
+
+
+
+// allow adding todo with Enter key
+todoInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        addTodoBtn.click();
+    }
+});
