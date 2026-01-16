@@ -57,6 +57,21 @@ body{
         height: 100%;
     }
 
+    #title {
+        font-size: 1.5rem;
+    }
+
+    #todo-input {
+        width: 70%;
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+
+    #add-todo-btn {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+
     #Todos-container {
         width: 100%;
         height: 100%;
