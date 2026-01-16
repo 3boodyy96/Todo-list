@@ -94,6 +94,10 @@ todo-items{
     margin-bottom: 10px;
 }
 
+.delete-btn{
+    cursor: pointer;
+}
+
 @media (max-width: 600px) {
     #Todos-container {
         width: 100%;

@@ -26,6 +26,9 @@ const hideImage = () =>
             <li class="flex items-center gap-2 p-2">
                 <input type="checkbox" class="w-4 h-4">
                 <span>${todoText}</span>
+                <button class="delete-btn ml-auto hover:scale-125 transition ease-in-out">
+                    <image src="images/delete icon.png" class="w-10 h-10">
+                </button>
             </li>
         </div>`;
         todoInput.value = "";
@@ -41,3 +44,15 @@ todoInput.addEventListener('keypress', (e) => {
         addTodoBtn.click();
     }
 });
+
+
+// delete todo when button is clicked
+todoList.addEventListener('click', (e) => {
+    if (e.target.classList.contains('delete-btn') || e.target.parentElement.classList.contains('delete-btn')) {
+        const todoItem = e.target.closest('.todo-items');
+        todoList.removeChild(todoItem);
+        hideImage();
+    }
+});
+
+
