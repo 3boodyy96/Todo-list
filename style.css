@@ -12,11 +12,13 @@ body{
     justify-content: center;
     align-items: center;
     margin: 0 auto;
+    width: 90%;
+    height: 90%;
 }
 
 #Todos-container{
     margin-top:10% ;
-    width: 90%;
+    width: 50%;
     padding: 20px;
     background-color: rgba(0, 0, 0, 0.443);
 }
@@ -39,4 +41,25 @@ body{
 #inputs{
     border-color:rgba(255, 255, 255, 0.289);
     border-width: 2px;
+}
+
+
+@media (max-width: 600px) {
+    #Todos-container {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+@media (max-width: 270px) {
+    #container {
+        width: 100%;
+        height: 100%;
+    }
+
+    #Todos-container {
+        width: 100%;
+        height: 100%;
+        margin-top:20%;
+    }
 }
