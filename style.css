@@ -35,7 +35,7 @@ body{
 #add-todo-btn{
     padding: 10px;
     cursor: pointer;
-    background-color: rgba(255, 255, 255, 0.289);
+    background-color: rgba(255, 255, 255, 0.161);
 }
 
 #inputs{
@@ -79,6 +79,19 @@ input[type="checkbox"]::before {
 
 input[type="checkbox"]:checked::before {
     transform: scale(1);
+}
+
+h1, input::placeholder, li{
+    text-shadow: 2px 4px 7px rgba(0, 0, 0, 0.5);
+}
+
+li{
+    word-wrap: break-word;
+}
+
+todo-items{
+    background-color: rgba(255, 255, 255, 0.161);
+    margin-bottom: 10px;
 }
 
 @media (max-width: 600px) {
