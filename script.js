@@ -7,18 +7,16 @@ const todosCounter = document.getElementById('todos-counter');
 const todoCountSpan = document.getElementById('todo-count');
 
 // function to hide image and update todos counter
-const hideImageAndTodosCounter = () =>
-{
-    todoList.children.length === 0 ? 
-    todoListImg.style.display = 'block' : todoListImg.style.display = 'none';
+const hideImageAndTodosCounter = () => {
+    todoList.children.length === 0 ?
+        todoListImg.style.display = 'block' : todoListImg.style.display = 'none';
     // update todos counter
     todosCounter.style.display = todoList.children.length === 0 ? 'none' : 'block';
 }
 
 
 // function to update progress bar
-const updateProgressBar = () =>
-{
+const updateProgressBar = () => {
     const totalTodos = todoList.children.length;
     const completedTodos = todoList.querySelectorAll('input[type="checkbox"]:checked').length;
     const progressBar = document.getElementById('progress');
@@ -27,16 +25,53 @@ const updateProgressBar = () =>
 }
 // function to update todos counter and progress bar
 
-const updateCounterAndProgressBar = () => 
-{
+const updateCounterAndProgressBar = () => {
     const totalTodos = todoList.children.length;
     const completedTodos = todoList.querySelectorAll('input[type="checkbox"]:checked').length;
-    todoCountSpan.textContent = completedTodos +"/"+ totalTodos;
+    todoCountSpan.textContent = completedTodos + "/" + totalTodos;
     // update progress bar
     updateProgressBar();
-    if (totalTodos === completedTodos && totalTodos !== 0)
-    {
-        alert("Congratulations! You have completed all your todos!");
+    if (totalTodos === completedTodos && totalTodos !== 0) {
+        // trigger confetti animation
+        const count = 200,
+            defaults = {
+                origin: { y: 0.7 },
+            };
+
+        function fire(particleRatio, opts) {
+            confetti(
+                Object.assign({}, defaults, opts, {
+                    particleCount: Math.floor(count * particleRatio),
+                })
+            );
+        }
+
+        fire(0.25, {
+            spread: 26,
+            startVelocity: 55,
+        });
+
+        fire(0.2, {
+            spread: 60,
+        });
+
+        fire(0.35, {
+            spread: 100,
+            decay: 0.91,
+            scalar: 0.8,
+        });
+
+        fire(0.1, {
+            spread: 120,
+            startVelocity: 25,
+            decay: 0.92,
+            scalar: 1.2,
+        });
+
+        fire(0.1, {
+            spread: 120,
+            startVelocity: 45,
+        });
     }
 }
 
@@ -50,8 +85,8 @@ todoList.addEventListener('change', (e) => {
 // function to add a new todo
 
 
-    addTodoBtn.addEventListener('click', () => {
-            let todoText = todoInput.value.trim();
+addTodoBtn.addEventListener('click', () => {
+    let todoText = todoInput.value.trim();
     if (todoText !== "") {
         todoList.innerHTML += `
         <div class="todo-items backdrop-blur-md rounded-xl p-2">
