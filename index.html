@@ -9,7 +9,6 @@
     <title>To-do list</title>
 
 </head>
-
 <body class="m-0 p-0 text-white">
     <div id="container">
         <img src="images/leaf-7215867_1920.jpg" class="fixed top-0 left-0 w-full h-full object-cover z-[-1] blur-sm"
@@ -18,7 +17,12 @@
             class="border-solid border-black rounded-2xl shadow-md hover:shadow-2xl hover:scale-105 transition ease-in-out flex flex-col items-center gap-7 ">
             <h1 id="title" class="text-4xl">Todo List</h1>
             <div id="todos-counter">
-                <h2 class="text-2xl p-5 rounded-2xl border text-center">keep it up! <span id="todo-count" class="border rounded-full p-1.5 text-2xl">0/0</span></h2>
+                <h2 class="text-2xl p-5 rounded-2xl border text-center">keep it up! 
+                    <span id="todo-count" class="border rounded-full p-1.5 text-2xl">0/0</span>
+                    <div id="progress-bar">
+                        <meter max="16" value="1" class="rounded-3xl mt-5" id="progress"></meter>
+                    </div>
+                </h2>
             </div>
             <div id="inputs" class="flex gap-3 p-3 rounded-xl">
                 <input type="text" id="todo-input" placeholder="Sleeping"

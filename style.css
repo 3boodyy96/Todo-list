@@ -125,6 +125,16 @@ button {
     margin-left: 10px;
 }
 
+#progress {
+    width: 80%;
+    height: 20px;
+    appearance: none;
+    -webkit-appearance: none;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
 @media (max-width: 900px) {
     #Todos-container {
         width: 70%;

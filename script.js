@@ -16,13 +16,24 @@ const hideImageAndTodosCounter = () =>
 }
 
 
-// function to update todos counter
+// function to update progress bar
+const updateProgressBar = () =>
+{
+    const totalTodos = todoList.children.length;
+    const completedTodos = todoList.querySelectorAll('input[type="checkbox"]:checked').length;
+    const progressBar = document.getElementById('progress');
+    progressBar.max = totalTodos;
+    progressBar.value = completedTodos;
+}
+// function to update todos counter and progress bar
 
-const updateTodosCounter = () => 
+const updateCounterAndProgressBar = () => 
 {
     const totalTodos = todoList.children.length;
     const completedTodos = todoList.querySelectorAll('input[type="checkbox"]:checked').length;
     todoCountSpan.textContent = completedTodos +"/"+ totalTodos;
+    // update progress bar
+    updateProgressBar();
     if (totalTodos === completedTodos && totalTodos !== 0)
     {
         alert("Congratulations! You have completed all your todos!");
@@ -32,7 +43,7 @@ const updateTodosCounter = () =>
 // add event listener to update counter on checkbox change
 todoList.addEventListener('change', (e) => {
     if (e.target.type === 'checkbox') {
-        updateTodosCounter();
+        updateCounterAndProgressBar();
     }
 });
 
@@ -54,10 +65,9 @@ todoList.addEventListener('change', (e) => {
         </div>`;
         todoInput.value = "";
         hideImageAndTodosCounter();
-        updateTodosCounter();
+        updateCounterAndProgressBar();
     }
 });
-
 
 
 // allow adding todo with Enter key
