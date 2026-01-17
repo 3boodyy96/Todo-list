@@ -39,7 +39,7 @@ const updateProgressBar = () => {
     const progressBar = document.getElementById('progress');
     progressBar.max = totalTodos;
     progressBar.value = completedTodos;
-    
+
 }
 // function to update todos counter and progress bar
 
@@ -100,7 +100,7 @@ todoList.addEventListener('change', (e) => {
         e.target.checked ?
             e.target.parentElement.classList.add('line-through', 'text-gray-400') :
             e.target.parentElement.classList.remove('line-through', 'text-gray-400');
-        
+
     }
 });
 
@@ -119,7 +119,7 @@ addTodoBtn.addEventListener('click', () => {
                 <input type="checkbox" class="w-4 h-4">
                 <span>${todoText}</span>
                 <button class="delete-btn focus:outline-none rounded-md hover:scale-125 transition ease-in-out w-10 h-10 p-0">
-                    <image src="images/delete icon.png" class="w-10 h-10">
+                    <abbr title="Delete Todo"><image src="images/delete icon.png" class="w-10 h-10"></abbr>
                 </button>
             </li>
         </div>`;
@@ -140,10 +140,11 @@ todoInput.addEventListener('keypress', (e) => {
 
 // delete todo when button is clicked
 todoList.addEventListener('click', (e) => {
-    if (e.target.classList.contains('delete-btn') || e.target.parentElement.classList.contains('delete-btn')) {
-        const todoItem = e.target.closest('.todo-items');
-        todoList.removeChild(todoItem);
+    if (e.target.closest('.delete-btn')) {
+        e.target.closest('.todo-items').remove();
         hideImageAndTodosCounter();
+        updateCounterAndProgressBar();
+        saveToLocalStorage();
     }
 });
 
