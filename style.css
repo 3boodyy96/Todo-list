@@ -126,7 +126,6 @@ button {
 #todo-count {
     background-color: rgba(255, 255, 255, 0.161);
     border-radius: 50%;
-    /* padding: 5px 15px; */
     margin-left: 10px;
 }
 
@@ -139,6 +138,27 @@ button {
     overflow: hidden;
     margin-bottom: 10px;
 }
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.todo-items{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    background-color: rgba(225, 225, 225, 0.161);
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;}
 
 @media (max-width: 900px) {
     #Todos-container {
