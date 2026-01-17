@@ -93,7 +93,7 @@ addTodoBtn.addEventListener('click', () => {
             <li class="flex items-center gap-2 p-2">
                 <input type="checkbox" class="w-4 h-4">
                 <span>${todoText}</span>
-                <button class="delete-btn ml-auto hover:scale-125 transition ease-in-out">
+                <button class="delete-btn focus:outline-none rounded-md hover:scale-125 transition ease-in-out w-10 h-10 p-0">
                     <image src="images/delete icon.png" class="w-10 h-10">
                 </button>
             </li>
