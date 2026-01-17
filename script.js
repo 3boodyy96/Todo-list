@@ -7,13 +7,9 @@ const todoListImg = document.getElementById('To-do-list-img');
 // hide image when todo is added
 const hideImage = () =>
 {
-    if (todoList.children.length > 0) {
-        todoListImg.style.display = 'none';
-    } else {
-        todoListImg.style.display = 'block';
-    }
+    todoList.children.length === 0 ? 
+    todoListImg.style.display = 'block' : todoListImg.style.display = 'none';
 }
-
 
 // function to add a new todo
 
