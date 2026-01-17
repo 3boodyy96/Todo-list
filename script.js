@@ -6,6 +6,23 @@ const todoListImg = document.getElementById('To-do-list-img');
 const todosCounter = document.getElementById('todos-counter');
 const todoCountSpan = document.getElementById('todo-count');
 
+// function for local storage
+const saveToLocalStorage = () => {
+    localStorage.setItem('todos', todoList.innerHTML);
+}
+
+const loadFromLocalStorage = () => {
+    const savedTodos = localStorage.getItem('todos');
+    if (savedTodos) {
+        todoList.innerHTML = savedTodos;
+        hideImageAndTodosCounter();
+        updateCounterAndProgressBar();
+    }
+}
+
+// load todos from local storage on page load
+window.addEventListener('load', loadFromLocalStorage);
+
 // function to hide image and update todos counter
 const hideImageAndTodosCounter = () => {
     todoList.children.length === 0 ?
@@ -22,6 +39,7 @@ const updateProgressBar = () => {
     const progressBar = document.getElementById('progress');
     progressBar.max = totalTodos;
     progressBar.value = completedTodos;
+    
 }
 // function to update todos counter and progress bar
 
@@ -79,9 +97,16 @@ const updateCounterAndProgressBar = () => {
 todoList.addEventListener('change', (e) => {
     if (e.target.type === 'checkbox') {
         updateCounterAndProgressBar();
+        e.target.checked ?
+            e.target.parentElement.classList.add('line-through', 'text-gray-400') :
+            e.target.parentElement.classList.remove('line-through', 'text-gray-400');
+        
     }
 });
 
+// save to local storage on any change in todo list
+document.addEventListener('change', saveToLocalStorage);
+document.addEventListener('click', saveToLocalStorage);
 // function to add a new todo
 
 
@@ -123,4 +148,3 @@ todoList.addEventListener('click', (e) => {
 });
 
 
-// todos counter
