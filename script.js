@@ -98,8 +98,8 @@ todoList.addEventListener('change', (e) => {
     if (e.target.type === 'checkbox') {
         updateCounterAndProgressBar();
         e.target.checked ?
-            e.target.parentElement.classList.add('line-through', 'text-gray-400') :
-            e.target.parentElement.classList.remove('line-through', 'text-gray-400');
+            e.target.parentElement.classList.add('line-through' ,'italic','decoration-black-500', 'text-gray-400' ,'font-bold') :
+            e.target.parentElement.classList.remove('line-through', 'text-gray-400' ,'italic','decoration-black-500', 'font-bold');
 
     }
 });
@@ -111,7 +111,7 @@ document.addEventListener('click', saveToLocalStorage);
 
 
 addTodoBtn.addEventListener('click', () => {
-    let todoText = todoInput.value.trim();
+    let todoText = `‎ ‎ ‎ ${todoInput.value.trim()}‎ ‎ ‎ ‎ `;
     if (todoText !== "") {
         todoList.innerHTML += `
         <div class="todo-items backdrop-blur-md rounded-xl p-2">
