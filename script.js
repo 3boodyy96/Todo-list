@@ -20,17 +20,37 @@ const loadFromLocalStorage = () => {
     }
 }
 
-// load todos from local storage on page load
-window.addEventListener('load', loadFromLocalStorage);
+// add some todos from api to the website
+const addTodosFromApi = async () => {
+    const fetchApi = fetch('https://jsonplaceholder.typicode.com/todos/')
+    const response = await fetchApi;
+    const json = await response.json();
+    console.log(json.slice(0, 5))
+
+    todoList.innerHTML += json.slice(0, 5).map(todo => `
+        <div class="todo-items backdrop-blur-md rounded-xl p-2">
+        <li class="flex items-center gap-2 p-2">
+        <input type="checkbox" class="w-4 h-4" ${todo.completed ? 'checked' : ''}>
+        <span>${todo.title}</span>
+        <button class="delete-btn focus:outline-none rounded-md hover:scale-125 transition ease-in-out w-10 h-10 p-0">
+        <abbr title="Delete Todo"><image src="images/delete icon.png" class="w-10 h-10"></abbr>
+            </button>
+        </li>
+    </div>`).join('');
+    hideImageAndTodosCounter();
+    updateCounterAndProgressBar();
+}
+
+// load todos from api
+document.addEventListener('DOMContentLoaded', addTodosFromApi);
 
 // function to hide image and update todos counter
 const hideImageAndTodosCounter = () => {
     todoList.children.length === 0 ?
         todoListImg.style.display = 'block' : todoListImg.style.display = 'none';
-    // update todos counter
+    // update todos counter    
     todosCounter.style.display = todoList.children.length === 0 ? 'none' : 'block';
-}
-
+}    
 
 // function to update progress bar
 const updateProgressBar = () => {
@@ -147,4 +167,3 @@ todoList.addEventListener('click', (e) => {
         saveToLocalStorage();
     }
 });
-//
