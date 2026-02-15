@@ -147,5 +147,4 @@ todoList.addEventListener('click', (e) => {
         saveToLocalStorage();
     }
 });
-
-
+//
